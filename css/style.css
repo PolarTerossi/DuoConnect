@@ -1,0 +1,195 @@
+/* ================================================================== */
+/* ARQUIVO DE ESTILOS PRINCIPAL (style.css)                           */
+/* ================================================================== */
+
+/* NOTA: As regras globais de 'body' e 'footer' para o layout 
+   foram removidas daqui. Agora, o layout do rodapé fixo será 
+   controlado 100% pelas classes do Tailwind no HTML de cada página.
+   Isso evita conflitos e torna o site consistente.
+*/
+
+/* --- Classes Globais Customizadas --- */
+.bg-azul {
+  background-color: #2b3b94;
+}
+
+
+/* ================================================================== */
+/* ESTILOS ESPECÍFICOS POR PÁGINA                                     */
+/* ================================================================== */
+
+/* --- PÁGINA: INDEX --- */
+.hero-gradient {
+  background: linear-gradient(135deg, #2b3b94 0%, #3b82f6 100%);
+}
+
+.text-shadow {
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.hero-container {
+  display: flex;
+  height: 400px;
+  width: 100%;
+}
+
+.hero-text,
+.hero-image-wrapper {
+  flex: 1 1 50%;
+  height: 100%;
+}
+
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 1rem;
+}
+
+.hero-image-wrapper {
+  position: relative;
+  height: 100%;
+}
+
+.hero-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 115%;
+  height: 115%;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Animação para o Carrossel do Hero */
+#heroTitle, #heroDesc, #heroImage {
+    transition: opacity 0.3s ease-in-out;
+}
+
+.fade-out {
+    opacity: 0;
+}
+
+
+/* --- PÁGINA: PRODUTOS --- */
+/* (Estes estilos agora só serão aplicados na página de produtos) */
+#secao-produtos .carousel-background {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 4rem 0;
+}
+
+#secao-produtos .carousel-container {
+  perspective: 1400px;
+  height: 580px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  width: 100%;
+}
+
+#secao-produtos .carousel-slide {
+  position: absolute;
+  top: 0;
+  width: 320px;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  padding: 12px;
+  opacity: 0;
+}
+
+#secao-produtos .carousel-slide.active {
+  transform: scale(1.1) translateY(20px);
+  z-index: 10;
+  opacity: 1;
+}
+
+#secao-produtos .inactive-left {
+  transform: translateX(-280px) scale(0.9);
+  opacity: 0.7;
+  z-index: 2;
+}
+
+#secao-produtos .inactive-right {
+  transform: translateX(280px) scale(0.9);
+  opacity: 0.7;
+  z-index: 2;
+}
+
+#secao-produtos .hidden-slide {
+  transform: translateX(800px) scale(0.5);
+  opacity: 0;
+  z-index: 1;
+}
+
+#secao-produtos .carousel-slide .img-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 320px;
+  border-radius: 0.5rem;
+}
+
+#secao-produtos .carousel-slide img {
+  max-height: 95%;
+  max-width: 95%;
+  object-fit: contain;
+}
+
+#secao-produtos .bg-telex {
+  background: #005dad;
+}
+
+#secao-produtos .bg-philips {
+  background: #ffa40f;
+}
+
+#secao-produtos .cards-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 4rem 2rem;
+  background-color: #005dad;
+  color: white;
+}
+
+#secao-produtos .cards-section .card {
+  background: white;
+  color: black;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+#secao-produtos .cards-section .card img {
+  width: 100%;
+  object-fit: contain;
+  height: 200px;
+}
+
+
+/* --- PÁGINA: LOCALIZAÇÃO --- */
+/* Estilos para a atribuição de créditos do mapa Leaflet */
+.leaflet-control-attribution {
+  font-size: 9px;
+  color: rgba(0, 0, 0, 0.3);
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  margin: 0;
+  padding: 0 3px;
+}
+
+/* --- Estilos para o Carrossel de Avaliações --- */
+.testimonial-slide {
+    box-sizing: border-box; /* Garante que padding não afete a largura total */
+    background-color: white;
+}

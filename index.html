@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DuoConnect | Produtos</title> <link rel="icon" type="image/png" href="Imagens/favicon.png">
+
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="css/style.css">
+
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link rel="stylesheet" href="css/produtos.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+</head>
+
+<body class="min-h-screen flex flex-col">
+
+  <header class="bg-white shadow sticky top-0 z-50">
+    <div class="container mx-auto flex justify-between items-center py-2 px-4">
+      <a href="index.html" class="flex items-center space-x-2 text-xl font-bold text-blue-600">
+        <img src="Imagens/Logo.png" 
+             alt="Logo da DuoConnect" 
+             class="object-contain"
+             style="max-height: 60px; width: auto;" />
+      </a>
+      <nav class="hidden md:flex space-x-4 text-sm">
+        <a href="index.html" class="text-gray-900 font-semibold hover:text-blue-800">Início</a>
+        <a href="sobre.html" class="text-gray-900 font-semibold hover:text-blue-800">Sobre Nós</a>
+        <a href="servicos.html" class="text-gray-900 font-semibold hover:text-blue-800">Serviços</a>
+        <a href="produtos.html" class="text-gray-900 font-semibold hover:text-blue-800">Produtos</a>
+        <a href="lojas.html" class="text-gray-900 font-semibold hover:text-blue-800">Nossas Lojas</a>
+        <a href="contato.html" class="text-gray-900 font-semibold hover:text-blue-800">Contato</a>
+      </nav>
+      <button id="mobileMenuBtn" class="md:hidden text-2xl text-blue-600 hover:text-blue-800" aria-label="Abrir menu">☰</button>
+    </div>
+    <div id="mobileMenu" class="hidden md:hidden bg-white border-t">
+      <div class="container mx-auto px-4 py-3 flex flex-col space-y-2 text-sm">
+        <a href="index.html" class="text-gray-900 font-semibold hover:text-blue-800">Início</a>
+        <a href="sobre.html" class="text-gray-900 font-semibold hover:text-blue-800">Sobre Nós</a>
+        <a href="servicos.html" class="text-gray-900 font-semibold hover:text-blue-800">Serviços</a>
+        <a href="produtos.html" class="text-gray-900 font-semibold hover:text-blue-800">Produtos</a>
+        <a href="lojas.html" class="text-gray-900 font-semibold hover:text-blue-800">Nossas Lojas</a>
+        <a href="contato.html" class="text-gray-900 font-semibold hover:text-blue-800">Contato</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="hero" class="hero-gradient text-white py-16 md:py-16 min-h-[400px] md:min-h-[500px] flex flex-col justify-center">
+    <div class="container mx-auto px-4 hero-container">
+      <div class="hero-text">
+        <h1 id="heroTitle" class="text-3xl md:text-4xl font-bold mb-6 text-shadow"></h1>
+        <p id="heroDesc" class="text-lg mb-8"></p>
+        <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
+          <a href="produtos.html" class="bg-transparent border-2 border-white text-white font-bold px-8 py-4 rounded-lg text-center hover:bg-white hover:text-blue-900 transition">
+            Conheça nossos produtos
+          </a>
+        </div>
+      </div>
+      <div class="hero-image-wrapper">
+        <img id="heroImage" src="" alt="Imagem do Hero" class="hero-image" />
+      </div>
+    </div>
+    <div class="container mx-auto px-4 mt-24 flex justify-center space-x-6">
+      <button id="prevBtn" class="bg-white text-blue-900 font-bold px-6 py-3 rounded hover:bg-gray-200">&larr; Anterior</button>
+      <button id="nextBtn" class="bg-white text-blue-900 font-bold px-6 py-3 rounded hover:bg-gray-200">Próximo &rarr;</button>
+    </div>
+  </section>
+
+  <section class="bg-gray-100 py-4">
+    <div class="container mx-auto px-4">
+      <h2 class="text-xl font-bold text-center mb-6 text-blue-900">Marcas Parceiras</h2>
+      <div class="flex flex-wrap justify-center items-center gap-6 md:gap-12">
+        <img src="Imagens/PhillpsF.svg" alt="Philips" class="h-12 md:h-20" />
+        <img src="Imagens/telexf.png" alt="Telex" class="h-12 md:h-20" />
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-gray-50 py-16">
+    <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between space-y-8 md:space-y-0 md:space-x-8">
+      <div class="md:w-1/2 flex justify-center">
+        <img src="Imagens/novidade.png" alt="Imagem Dia dos Pais" class="rounded-lg shadow-lg border-4 border-blue-900 object-cover" style="width: 350px; height: auto;" />
+      </div>
+      <div class="md:w-1/2">
+        <h2 class="text-3xl font-bold text-blue-900 mb-4">Dia dos Pais com mais conexão</h2>
+        <p class="text-gray-700 text-lg mb-6">
+          Neste Dia dos Pais, presenteie com algo que vai muito além de um presente comum. Dê a ele a oportunidade de ouvir melhor os “eu te amo”, as risadas em família e todos os momentos especiais. Surpreenda com qualidade de vida e afeto.
+        </p>
+        <a href="https://www.hearingsolutions.philips.com/pt-br/hearing-aids/overview" class="inline-block bg-blue-900 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full transition">
+          Ver opções de presente →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white py-16">
+    <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div class="flex flex-col items-center text-center p-6 rounded-lg shadow-md text-white" style="background-color: #3599f1;">
+        <div class="p-4 rounded-lg mb-6" style="background-color: #ffa40f;">
+          <img src="Imagens/phillipsApa.png" alt="Aparelho auditivo Philips" class="w-96 h-72 rounded-lg shadow-lg border-4 border-[#005dad] object-contain" />
+        </div>
+        <h3 class="text-2xl font-bold mb-3">Philips HearLink</h3>
+        <p class="text-white text-lg mb-4">
+          Tecnologia de ponta que conecta você ao mundo com clareza, conforto e discrição. O Philips HearLink é ideal para quem busca inovação e desempenho auditivo.
+        </p>
+        <a href="https://www.hearingsolutions.philips.com/pt-br/hearing-aids/hearing-aids/minirite-t-r" class="inline-block bg-white hover:bg-gray-200 text-blue-900 font-bold py-2 px-6 rounded-full transition">
+          Saiba mais →
+        </a>
+      </div>
+      <div class="flex flex-col items-center text-center p-6 rounded-lg shadow-md text-white" style="background-color: #3599f1;">
+        <div class="p-4 rounded-lg mb-6" style="background-color: #005dad;">
+          <img src="Imagens/telexApa.png" alt="Aparelho auditivo Telex" class="w-96 h-72 rounded-lg shadow-lg border-4 border-[#005dad] object-contain" />
+        </div>
+        <h3 class="text-2xl font-bold mb-3">Telex Zircon</h3>
+        <p class="text-white text-lg mb-4">
+          Com tradição e confiança, os aparelhos Telex oferecem excelente desempenho em ambientes desafiadores, proporcionando conforto e qualidade sonora.
+        </p>
+        <a href="https://telex.com.br/aparelhos-auditivos/oticon-zircon/" class="inline-block bg-white hover:bg-gray-200 text-blue-900 font-bold py-2 px-6 rounded-full transition">
+          Saiba mais →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-black text-white text-sm w-full mt-auto">
+    <div class="container mx-auto px-4 py-4 flex flex-col md:flex-row items-center justify-between">
+      <div class="flex items-center mb-4 md:mb-0">
+        <img src="Imagens/LogoIntranet.png" alt="Logo DuoConnect" class="h-12 w-auto" />
+      </div>
+      <div class="text-center md:text-left mb-4 md:mb-0">
+        © 2025 DuoConnect. Todos os direitos reservados.
+      </div>
+      <div class="flex space-x-4 items-center">
+        <a href="https://www.instagram.com/sarita_terossi/" target="_blank" aria-label="Instagram">
+          <img src="Imagens/insta.png" alt="Instagram" class="h-16 w-16 object-contain" />
+        </a>
+        <a href="http://linkedin.com/company/duoconnect-solu%C3%A7%C3%B5es-auditivas/posts/?feedView=all" target="_blank" aria-label="LinkedIn">
+          <img src="Imagens/linkedin.png" alt="LinkedIn" class="h-8 w-8 object-contain" />
+        </a>
+        <a href="https://wa.me/5599999999999" target="_blank" aria-label="WhatsApp">
+          <img src="Imagens/zap.png" alt="WhatsApp" class="h-16 w-16 object-contain" />
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="js/script.js"></script>
+
+</body>
+</html>

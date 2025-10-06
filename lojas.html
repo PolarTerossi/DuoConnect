@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DuoConnect | Localização</title>
+  <link rel="icon" type="image/png" href="imagens/favicon.png">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="flex flex-col min-h-screen bg-gray-50">
+
+  <header class="bg-gray-50 shadow sticky top-0 z-50">
+    <div class="container mx-auto flex justify-between items-center py-2 px-4">
+      <a href="index.html" class="flex items-center space-x-2 text-xl font-bold text-blue-600">
+        <img src="Imagens/Logo.png" alt="Logo da DuoConnect" class="object-contain" style="max-height: 60px; width: auto;" />
+      </a>
+      <nav class="hidden md:flex space-x-4 text-sm">
+        <a href="index.html" class="text-gray-900 font-semibold hover:text-blue-800">Início</a>
+        <a href="sobre.html" class="text-gray-900 font-semibold hover:text-blue-800">Sobre Nós</a>
+        <a href="servicos.html" class="text-gray-900 font-semibold hover:text-blue-800">Serviços</a>
+        <a href="produtos.html" class="text-gray-900 font-semibold hover:text-blue-800">Produtos</a>
+        <a href="lojas.html" class="text-gray-900 font-semibold hover:text-blue-800">Nossas Lojas</a>
+        <a href="contato.html" class="text-gray-900 font-semibold hover:text-blue-800">Contato</a>
+      </nav>
+      <button id="mobileMenuBtn" class="md:hidden text-2xl text-blue-600 hover:text-blue-800" aria-label="Abrir menu">☰</button>
+    </div>
+    <div id="mobileMenu" class="hidden md:hidden bg-gray-50 border-t">
+      <div class="container mx-auto px-4 py-3 flex flex-col space-y-2 text-sm">
+        <a href="index.html" class="text-gray-900 font-semibold hover:text-blue-800">Início</a>
+        <a href="sobre.html" class="text-gray-900 font-semibold hover:text-blue-800">Sobre Nós</a>
+        <a href="servicos.html" class="text-gray-900 font-semibold hover:text-blue-800">Serviços</a>
+        <a href="produtos.html" class="text-gray-900 font-semibold hover:text-blue-800">Produtos</a>
+        <a href="lojas.html" class="text-gray-900 font-semibold hover:text-blue-800">Nossas Lojas</a>
+        <a href="contato.html" class="text-gray-900 font-semibold hover:text-blue-800">Contato</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 py-12 flex-grow" style="background-color: #2b3b94;">
+    <h2 class="text-3xl font-bold text-white mb-8 text-center">Onde estamos</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div id="map" class="w-full h-[500px] rounded-lg shadow-lg"></div>
+      <div id="storeInfo" class="p-6 bg-white rounded-lg shadow">
+        <h2 class="text-2xl font-bold mb-4" style="color: #2b3b94;">Selecione uma loja</h2>
+        <img id="storeImg" src="Imagens/placeholder.jpg" alt="Foto da loja" class="w-full h-72 object-cover rounded mb-6" />
+        <p id="storeAddress" class="text-gray-700 mt-4">Clique em um marcador no mapa para ver os detalhes.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-black text-white text-sm w-full mt-auto">
+    <div class="container mx-auto px-4 py-4 flex flex-col md:flex-row items-center justify-between">
+      <div class="flex items-center mb-4 md:mb-0">
+        <img src="Imagens/LogoIntranet.png" alt="Logo DuoConnect" class="h-12 w-auto" />
+      </div>
+      <div class="text-center md:text-left mb-4 md:mb-0">
+        © 2025 DuoConnect. Todos os direitos reservados.
+      </div>
+      <div class="flex space-x-4 items-center">
+        <a href="https://www.instagram.com/sarita_terossi/" target="_blank" aria-label="Instagram"><img src="Imagens/insta.png" alt="Instagram" class="h-16 w-16 object-contain" /></a>
+        <a href="http://linkedin.com/company/duoconnect-solu%C3%A7%C3%B5es-auditivas/posts/?feedView=all" target="_blank" aria-label="LinkedIn"><img src="Imagens/linkedin.png" alt="LinkedIn" class="h-8 w-8 object-contain" /></a>
+        <a href="https://wa.me/5599999999999" target="_blank" aria-label="WhatsApp"><img src="Imagens/zap.png" alt="WhatsApp" class="h-16 w-16 object-contain" /></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js" defer></script>
+  
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    // Espera o conteúdo da página carregar para garantir que a <div id="map"> já exista
+    document.addEventListener('DOMContentLoaded', () => {
+      
+      const mapContainer = document.getElementById('map');
+      if (mapContainer) {
+
+        // --- NOVA FUNÇÃO REUTILIZÁVEL ---
+        // Esta função recebe um objeto "loja" e atualiza o painel de informações.
+        function exibirInfoLoja(loja) {
+          const storeInfo = document.getElementById("storeInfo");
+          if (storeInfo && loja) {
+            const encodedAddress = encodeURIComponent(loja.endereco);
+            storeInfo.innerHTML = `
+              <h2 class="text-2xl font-bold text-blue-600 mb-4">${loja.nome}</h2>
+              <img src="${loja.imagem}" alt="${loja.nome}" class="w-full h-72 object-cover rounded mb-6" />
+              <p class="text-gray-700 mt-4">${loja.endereco}</p>
+              <a href="https://www.google.com/maps/search/?api=1&query=${encodedAddress}"
+                 target="_blank"
+                 class="inline-block mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition">
+                Ver no Google Maps
+              </a>`;
+          }
+        }
+        
+        const lojas = [
+          { nome: "Lojas Telex - Barra da Tijuca - Rio de Janeiro", lat: -23.004275, lng: -43.317095, endereco: "Avenida das Américas, 500, bloco 2, loja 105, Shopping Downtown, Barra da Tijuca, Rio de Janeiro/RJ, CEP 22640-904", imagem: "Imagens/LojasTelex/Barra.png", tipo: "telex" },
+          { nome: "Lojas Telex - Botafogo - Rio de Janeiro", lat: -22.95563, lng: -43.19620, endereco: "Rua Voluntários da Pátria, 445, loja 103, Botafogo, Rio de Janeiro/RJ, CEP 22270-005", imagem: "Imagens/LojasTelex/Botafogo.png", tipo: "telex" },
+          { nome: "Lojas Telex - Campos dos Goytacazes", lat: -21.763614, lng: -41.323889, endereco: "Rua Treze de Maio, 262, loja 03, Centro, Campos dos Goytacazes/RJ, CEP 28010-260", imagem: "Imagens/LojasTelex/CdG.png", tipo: "telex" },
+          { nome: "Loja Telex - Centro - Rio de Janeiro", lat: -22.912362, lng: -43.174580, endereco: "Avenida Rio Branco, 156, loja B, Edifício Avenida Central, Centro, Rio de Janeiro/RJ, CEP 20040-901.", imagem: "Imagens/LojasTelex/Centro.png", tipo: "telex" },
+          { nome: "Loja Telex - Copacabana - Rio de Janeiro", lat: -22.976542, lng: -43.190083, endereco: "Avenida Nossa Senhora de Copacabana, 959, loja A, Copacabana, Rio de Janeiro/RJ, CEP 22060-001", imagem: "Imagens/LojasTelex/Copa.png", tipo: "telex" },
+          { nome: "Loja Telex - Icaraí - Niterói", lat: -22.904284, lng: -43.110510, endereco: "Travessa Capitão Zeferino, 27, loja 101, Icaraí, Niterói/RJ, CEP 24220-230", imagem: "Imagens/LojasTelex/Icarai.png", tipo: "telex" },
+          { nome: "Loja Telex - Ipanema - Rio de Janeiro", lat: -22.984172, lng: -43.205976, endereco: "Rua Visconde de Pirajá, 351, loja 220, Edifício Fórum de Ipanema (Galeria Fórum), Ipanema, Rio de Janeiro/RJ, CEP 22410-906", imagem: "Imagens/LojasTelex/Ipa.png", tipo: "telex" },
+          { nome: "Loja Telex - Madureira - Rio de Janeiro", lat: -22.873259, lng: -43.339157, endereco: "Estrada do Portela, 99, loja 276, Condomínio do Edifício Polo 1, Madureira, Rio de Janeiro/RJ, CEP 21351-901", imagem: "Imagens/LojasTelex/Madu.png", tipo: "telex" },
+          { nome: "Telex - Méier - Rio de Janeiro", lat: -22.902875, lng: -43.282604, endereco: "Rua Dias da Cruz, 188, loja 143 H, Centro Comercial Méier (Galeria Oxford), Méier, Rio de Janeiro/RJ, CEP 20720-900", imagem: "Imagens/LojasTelex/Meier.png", tipo: "telex" },
+          { nome: "DuoConnect - Centro - Niterói", lat: -22.893111, lng: -43.121344, endereco: "Rua Maestro Felício Toledo, 500, loja 103, Centro, Niterói/RJ, CEP 24030-107", imagem: "Imagens/loja2.jpg", tipo: "telex" },
+          { nome: "DuoConnect - Tijuca", lat: -22.924854, lng: -43.232169, endereco: "Praça Saenz Pena, 45, loja 323, Shopping 45, Tijuca, Rio de Janeiro/RJ, CEP 20520-900", imagem: "Imagens/loja2.jpg", tipo: "telex" },
+          { nome: "Phillips - Ipanema", lat: -22.984508, lng: -43.205713, endereco: "Rua Visconde de Pirajá, 351, loja 207, Ipanema, Rio de Janeiro/RJ, CEP 22410-003.", imagem: "Imagens/Lojasphillips/ipa.png", tipo: "philips" },
+          { nome: "DuoConnect - Tijuca", lat: -22.924928, lng: -43.231985, endereco: "Praça Saenz Peña, 45, loja 235, Tijuca, Rio de Janeiro/RJ, CEP 20520-090", imagem: "Imagens/loja2.jpg", tipo: "philips" },
+          { nome: "Phillips - Barra da Tijuca", lat: -23.004274, lng: -43.317102, endereco: "Avenida das Américas, 500, bloco 9, loja 105, Barra da Tijuca, Rio de Janeiro/RJ, CEP 22640-904", imagem: "Imagens/LojasPhillips/barra.png", tipo: "philips" },
+          { nome: "Phillips - Icaraí - Niterói", lat: -22.906024, lng: -43.112158, endereco: "Rua Ator Paulo Gustavo, 160, loja 108, Icaraí, Niterói/RJ, CEP 24230-062", imagem: "Imagens/LojasPhillips/icarai.png", tipo: "philips" },
+          { nome: "DuoConnect - Centro - Itaperuna", lat: -21.203488, lng: -41.889752, endereco: "Rua Dez de Maio, 500, sala 1215, Centro, Itaperuna/RJ, CEP 28300-000", imagem: "Imagens/loja2.jpg", tipo: "philips" },
+          { nome: "Phillips - Copacabana", lat: -22.970728, lng: -43.186757, endereco: "Avenida Nossa Senhora de Copacabana, 680, loja SS F, Copacabana, Rio de Janeiro/RJ, CEP 22050-900", imagem: "Imagens/LojasPhillips/copa.png", tipo: "philips" },
+          { nome: "Phillips - Madureira", lat: -22.872898, lng: -43.338909, endereco: "Estrada do Portela, 99, loja 279, Madureira, Rio de Janeiro/RJ, CEP 21351-901", imagem: "Imagens/LojasPhillips/madu.png", tipo: "philips" },
+          { nome: "Phillips - Centro - São Gonçalo", lat: -22.822901, lng: -43.043359, endereco: "Rua Doutor Nilo Peçanha, 100, loja 03, Centro, São Gonçalo/RJ, CEP 24445-360", imagem: "Imagens/LojasPhillips/sg.png", tipo: "philips" },
+        ];
+        
+        const blueIcon = L.icon({ iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png', shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png', iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34], shadowSize: [41, 41] });
+        const goldIcon = L.icon({ iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-gold.png', shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png', iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34], shadowSize: [41, 41] });
+        
+        const map = L.map('map').setView([-22.20, -42.65], 8);
+        
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+        }).addTo(map);
+        
+        lojas.forEach((loja) => {
+          const icon = loja.tipo === "philips" ? goldIcon : blueIcon;
+          const marker = L.marker([loja.lat, loja.lng], { icon }).addTo(map);
+          marker.bindPopup(`<b>${loja.nome}</b>`);
+
+          // Agora o clique no marcador apenas chama nossa nova função
+          marker.on("click", () => {
+            exibirInfoLoja(loja);
+          });
+        });
+
+        // --- NOVO CÓDIGO ---
+        // Exibe a primeira loja da lista como padrão assim que a página carrega.
+        if (lojas.length > 0) {
+          exibirInfoLoja(lojas[0]); // Pega o primeiro item da lista de lojas
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
