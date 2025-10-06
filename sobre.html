@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DuoConnect | Sobre</title>
-  <link rel="icon" type="image/png" href="Imagens/favicon.png">
+  <link rel="icon" type="image/png" href="imagens/favicon.png">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" 
     integrity="sha512-VkCG7c8WfbKSKJt6Qkl1U+pHdceHT2n48PFeqa1qQa0KJwTu9PhCwUROipyy+LE+EXwZZqYy9oLPKO/dFFUVRg==" 
@@ -18,7 +18,7 @@
   <header class="bg-gray-50 shadow sticky top-0 z-50">
     <div class="container mx-auto flex justify-between items-center py-2 px-4">
       <a href="index.html" class="flex items-center space-x-2 text-xl font-bold text-blue-600">
-        <img src="Imagens/Logo.png" 
+        <img src="imagens/Logo.png" 
              alt="Logo da DuoConnect" 
              class="object-contain"
              style="max-height: 60px; width: auto;" />
@@ -89,12 +89,13 @@
       <p class="text-lg">Descubra o que torna a experiência DuoConnect única</p>
     </div>
     <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      
       <div class="bg-white shadow-lg rounded-2xl p-6 border hover:shadow-xl transition">
         <h3 class="text-xl font-bold text-blue-600 mb-4 text-center">🌱 Descarte Ecológico</h3>
         <p class="text-gray-700 mb-4">
           Todas as nossas lojas possuem pontos de coleta de pilhas e baterias usadas, garantindo o descarte correto, seguro e ecológico.<br>
         </p>
-        <button onclick="toggleInfo(this)" class="w-full bg-blue-900 text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-800 transition">
+        <button class="toggle-info-btn w-full bg-blue-900 text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-800 transition">
           Como funciona?
         </button>
         <div class="hidden mt-4 p-4 border border-blue-900 rounded-lg bg-blue-50 text-gray-800">
@@ -105,12 +106,13 @@
           <em>Um gesto simples, um grande impacto!</em>
         </div>
       </div>
+
       <div class="bg-white shadow-lg rounded-2xl p-6 border hover:shadow-xl transition">
         <h3 class="text-xl font-bold text-blue-600 mb-4 text-center">🐾 Pet Friendly</h3>
         <p class="text-gray-700 mb-4">
           Sua experiência em nossas lojas também pode incluir seus melhores amigos de quatro patas. Onde todos são recebidos com carinho.<br>
         </p>
-        <button onclick="toggleInfo(this)" class="w-full bg-blue-900 text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-800 transition">
+        <button class="toggle-info-btn w-full bg-blue-900 text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-800 transition">
           Na prática
         </button>
         <div class="hidden mt-4 p-4 border border-blue-900 rounded-lg bg-blue-50 text-gray-800">
@@ -120,12 +122,13 @@
           • Equipe preparada para receber bem os bichinhos.
         </div>
       </div>
+
       <div class="bg-white shadow-lg rounded-2xl p-6 border hover:shadow-xl transition">
         <h3 class="text-xl font-bold text-blue-600 mb-4 text-center">♿ Acessibilidade PCD</h3>
         <p class="text-gray-700 mb-4">
           Nossas lojas são adaptadas para receber pessoas com deficiência, garantindo conforto, segurança e autonomia para todos os clientes.<br>
         </p>
-        <button onclick="toggleInfo(this)" class="w-full bg-blue-900 text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-800 transition">
+        <button class="toggle-info-btn w-full bg-blue-900 text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-800 transition">
           O que você encontra?
         </button>
         <div class="hidden mt-4 p-4 border border-blue-900 rounded-lg bg-blue-50 text-gray-800">
@@ -135,12 +138,13 @@
           • Espaços acessíveis e confortáveis.
         </div>
       </div>
+
       <div class="bg-white shadow-lg rounded-2xl p-6 border hover:shadow-xl transition">
         <h3 class="text-xl font-bold text-blue-600 mb-4 text-center">📘 Treinamentos Internos</h3>
         <p class="text-gray-700 mb-4">
           Nossos profissionais recebem capacitação contínua para oferecer sempre o melhor atendimento e a melhores soluções.<br>
         </p>
-        <button onclick="toggleInfo(this)" class="w-full bg-blue-900 text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-800 transition">
+        <button class="toggle-info-btn w-full bg-blue-900 text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-800 transition">
           Como funciona?
         </button>
         <div class="hidden mt-4 p-4 border border-blue-900 rounded-lg bg-blue-50 text-gray-800">
@@ -150,12 +154,13 @@
           • Atualização constante para novas soluções.
         </div>
       </div>
+
       <div class="bg-white shadow-lg rounded-2xl p-6 border hover:shadow-xl transition">
         <h3 class="text-xl font-bold text-blue-600 mb-4 text-center">🤝 Atendimento Personalizado</h3>
         <p class="text-gray-700 mb-4">
           Cada pessoa tem sua forma de ouvir o mundo. Por isso, nosso atendimento é personalizado, buscando a melhor solução para você.<br>
         </p>
-        <button onclick="toggleInfo(this)" class="w-full bg-blue-900 text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-800 transition">
+        <button class="toggle-info-btn w-full bg-blue-900 text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-800 transition">
           Na prática
         </button>
         <div class="hidden mt-4 p-4 border border-blue-900 rounded-lg bg-blue-50 text-gray-800">
@@ -165,12 +170,13 @@
           • Indicação das melhores soluções para cada perfil.
         </div>
       </div>
+
       <div class="bg-white shadow-lg rounded-2xl p-6 border hover:shadow-xl transition">
         <h3 class="text-xl font-bold text-blue-600 mb-4 text-center">📞 Suporte</h3>
         <p class="text-gray-700 mb-4">
           Estamos sempre disponíveis para auxiliar, esclarecer dúvidas e oferecer acompanhamento completo. Basta entrar em contato conosco.<br>
         </p>
-        <button onclick="toggleInfo(this)" class="w-full bg-blue-900 text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-800 transition">
+        <button class="toggle-info-btn w-full bg-blue-900 text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-800 transition">
           O que oferecemos?
         </button>
         <div class="hidden mt-4 p-4 border border-blue-900 rounded-lg bg-blue-50 text-gray-800">
@@ -186,7 +192,7 @@
   <section class="bg-white py-16">
     <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center px-4 gap-10">
       <div class="flex-shrink-0">
-        <img src="Imagens/diretora.png" alt="Foto da Diretora" 
+        <img src="imagens/diretora.png" alt="Foto da Diretora Sarita Terossi" 
              class="w-60 h-80 object-cover rounded-2xl border-4 border-blue-900 shadow-lg" />
       </div>
       <div class="text-center md:text-left">
@@ -208,26 +214,27 @@
   <footer class="bg-black text-white text-sm w-full mt-auto">
     <div class="container mx-auto px-4 py-4 flex flex-col md:flex-row items-center justify-between">
       <div class="flex items-center mb-4 md:mb-0">
-        <img src="Imagens/LogoIntranet.png" alt="Logo DuoConnect" class="h-12 w-auto" />
+        <img src="imagens/LogoIntranet.png" alt="Logo DuoConnect para rodapé" class="h-12 w-auto" />
       </div>
       <div class="text-center md:text-left mb-4 md:mb-0">
         © 2025 DuoConnect. Todos os direitos reservados.
       </div>
       <div class="flex space-x-4 items-center">
         <a href="https://www.instagram.com/sarita_terossi/" target="_blank" aria-label="Instagram">
-          <img src="Imagens/insta.png" alt="Instagram" class="h-16 w-16 object-contain" />
+          <img src="imagens/insta.png" alt="Ícone do Instagram" class="h-16 w-16 object-contain" />
         </a>
         <a href="http://linkedin.com/company/duoconnect-solu%C3%A7%C3%B5es-auditivas/posts/?feedView=all" target="_blank" aria-label="LinkedIn">
-          <img src="Imagens/linkedin.png" alt="LinkedIn" class="h-8 w-8 object-contain" />
+          <img src="imagens/linkedin.png" alt="Ícone do LinkedIn" class="h-8 w-8 object-contain" />
         </a>
-        <a href="https://wa.me/5599999999999" target="_blank" aria-label="WhatsApp">
-          <img src="Imagens/zap.png" alt="WhatsApp" class="h-16 w-16 object-contain" />
+        <a href="https://wa.me/5519999999999" target="_blank" aria-label="WhatsApp">
+          <img src="imagens/zap.png" alt="Ícone do WhatsApp" class="h-16 w-16 object-contain" />
         </a>
       </div>
     </div>
   </footer>
 
-  <script defer src="js/script.js"></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/sobre.js" defer></script>
 
 </body>
 </html>

@@ -1,0 +1,20 @@
+/* ================================================================== */
+/* ESTILOS ESPECÍFICOS PARA A PÁGINA: LOCALIZAÇÃO (localizacao.css)   */
+/* ================================================================== */
+
+/* Estilos para a atribuição de créditos do mapa Leaflet */
+.leaflet-control-attribution {
+  font-size: 9px;
+  color: rgba(0, 0, 0, 0.3);
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  margin: 0;
+  padding: 0 3px;
+}
+
+/* --- Estilos para o Carrossel de Avaliações --- */
+.testimonial-slide {
+    box-sizing: border-box; /* Garante que padding não afete a largura total */
+    background-color: white;
+}
