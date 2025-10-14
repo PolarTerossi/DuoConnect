@@ -27,13 +27,13 @@ const LocationPage = {
         { nome: "Loja Telex - Ipanema - Rio de Janeiro", lat: -22.984172, lng: -43.205976, endereco: "Rua Visconde de Pirajá, 351, loja 220, Edifício Fórum de Ipanema (Galeria Fórum), Ipanema, Rio de Janeiro/RJ, CEP 22410-906", imagem: "imagens/LojasTelex/Ipa.png", tipo: "telex" },
         { nome: "Loja Telex - Madureira - Rio de Janeiro", lat: -22.873259, lng: -43.339157, endereco: "Estrada do Portela, 99, loja 276, Condomínio do Edifício Polo 1, Madureira, Rio de Janeiro/RJ, CEP 21351-901", imagem: "imagens/LojasTelex/Madu.png", tipo: "telex" },
         { nome: "Telex - Méier - Rio de Janeiro", lat: -22.902875, lng: -43.282604, endereco: "Rua Dias da Cruz, 188, loja 143 H, Centro Comercial Méier (Galeria Oxford), Méier, Rio de Janeiro/RJ, CEP 20720-900", imagem: "imagens/LojasTelex/Meier.png", tipo: "telex" },
-        { nome: "DuoConnect - Centro - Niterói", lat: -22.893111, lng: -43.121344, endereco: "Rua Maestro Felício Toledo, 500, loja 103, Centro, Niterói/RJ, CEP 24030-107", imagem: "imagens/loja2.jpg", tipo: "telex" },
-        { nome: "DuoConnect - Tijuca", lat: -22.924854, lng: -43.232169, endereco: "Praça Saenz Pena, 45, loja 323, Shopping 45, Tijuca, Rio de Janeiro/RJ, CEP 20520-900", imagem: "imagens/loja2.jpg", tipo: "telex" },
+        { nome: "Telex - Centro - Niterói", lat: -22.893111, lng: -43.121344, endereco: "Rua Maestro Felício Toledo, 500, loja 103, Centro, Niterói/RJ, CEP 24030-107", imagem: "imagens/Lojas/Telex/nit.png", tipo: "telex" },
+        { nome: "Telex - Tijuca", lat: -22.924854, lng: -43.232169, endereco: "Praça Saenz Pena, 45, loja 323, Shopping 45, Tijuca, Rio de Janeiro/RJ, CEP 20520-900", imagem: "imagens/LojasTelex/tijuca.png", tipo: "telex" },
         { nome: "Phillips - Ipanema", lat: -22.984508, lng: -43.205713, endereco: "Rua Visconde de Pirajá, 351, loja 207, Ipanema, Rio de Janeiro/RJ, CEP 22410-003.", imagem: "imagens/Lojasphillips/ipa.png", tipo: "philips" },
-        { nome: "DuoConnect - Tijuca", lat: -22.924928, lng: -43.231985, endereco: "Praça Saenz Peña, 45, loja 235, Tijuca, Rio de Janeiro/RJ, CEP 20520-090", imagem: "imagens/loja2.jpg", tipo: "philips" },
+        { nome: "Phillips - Tijuca", lat: -22.924928, lng: -43.231985, endereco: "Praça Saenz Peña, 45, loja 235, Tijuca, Rio de Janeiro/RJ, CEP 20520-090", imagem: "imagens/LojasPhillips/tijuca.png", tipo: "philips" },
         { nome: "Phillips - Barra da Tijuca", lat: -23.004274, lng: -43.317102, endereco: "Avenida das Américas, 500, bloco 9, loja 105, Barra da Tijuca, Rio de Janeiro/RJ, CEP 22640-904", imagem: "imagens/LojasPhillips/barra.png", tipo: "philips" },
         { nome: "Phillips - Icaraí - Niterói", lat: -22.906024, lng: -43.112158, endereco: "Rua Ator Paulo Gustavo, 160, loja 108, Icaraí, Niterói/RJ, CEP 24230-062", imagem: "imagens/LojasPhillips/icarai.png", tipo: "philips" },
-        { nome: "DuoConnect - Centro - Itaperuna", lat: -21.203488, lng: -41.889752, endereco: "Rua Dez de Maio, 500, sala 1215, Centro, Itaperuna/RJ, CEP 28300-000", imagem: "imagens/loja2.jpg", tipo: "philips" },
+        { nome: "Phillips - Centro - Itaperuna", lat: -21.203488, lng: -41.889752, endereco: "Rua Dez de Maio, 500, sala 1215, Centro, Itaperuna/RJ, CEP 28300-000", imagem: "imagens/LojasPhillips/ita.png", tipo: "philips" },
         { nome: "Phillips - Copacabana", lat: -22.970728, lng: -43.186757, endereco: "Avenida Nossa Senhora de Copacabana, 680, loja SS F, Copacabana, Rio de Janeiro/RJ, CEP 22050-900", imagem: "imagens/LojasPhillips/copa.png", tipo: "philips" },
         { nome: "Phillips - Madureira", lat: -22.872898, lng: -43.338909, endereco: "Estrada do Portela, 99, loja 279, Madureira, Rio de Janeiro/RJ, CEP 21351-901", imagem: "imagens/LojasPhillips/madu.png", tipo: "philips" },
         { nome: "Phillips - Centro - São Gonçalo", lat: -22.822901, lng: -43.043359, endereco: "Rua Doutor Nilo Peçanha, 100, loja 03, Centro, São Gonçalo/RJ, CEP 24445-360", imagem: "imagens/LojasPhillips/sg.png", tipo: "philips" },
@@ -64,12 +64,18 @@ const LocationPage = {
         const blueIcon = this.createMarkerIcon('blue');
         const goldIcon = this.createMarkerIcon('gold');
 
-        this.storesData.forEach(store => {
+        this.storesData.forEach((store, index) => {
             const icon = store.tipo === "philips" ? goldIcon : blueIcon;
-            const marker = L.marker([store.lat, store.lng], { icon }).addTo(map);
+
+            // Pequeno deslocamento para evitar sobreposição
+            const offsetLat = (Math.random() - 0.5) * 0.001;  // ~100m de variação
+            const offsetLng = (Math.random() - 0.5) * 0.001;
+
+            const marker = L.marker([store.lat + offsetLat, store.lng + offsetLng], { icon });
             
             marker.bindPopup(`<b>${store.nome}</b>`);
             marker.on("click", () => this.displayStoreInfo(store));
+            marker.addTo(map);
         });
 
         // Exibe a primeira loja da lista por padrão
