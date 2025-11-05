@@ -6,9 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!heroSection) return;
 
   const slides = [
-    { title: "Reconecte-se com os Sons da Vida", description: "Nossos aparelhos auditivos de última geração trazem de volta a clareza e a alegria dos momentos em família.", image: "imagens/index1.jpg" },
-    { title: "Tecnologia e Discreção para o seu Dia a Dia", description: "Descubra modelos quase invisíveis, com conectividade Bluetooth e baterias recarregáveis.", image: "imagens/index2.avif" },
-    { title: "Qualidade de Vida Começa com Boa Audição", description: "Invista no seu bem-estar. Agende uma avaliação gratuita e transforme sua experiência auditiva.", image: "imagens/index3.jpg" }
+    { title: "Reconecte-se com os Sons da Vida", description: "Nossos aparelhos auditivos de última geração trazem de volta a clareza e a alegria dos momentos em família.", image: "Imagens/index1.jpg" },
+    { title: "Tecnologia e Discreção para o seu Dia a Dia", description: "Descubra modelos quase invisíveis, com conectividade Bluetooth e baterias recarregáveis.", image: "Imagens/index2.avif" },
+    { title: "Qualidade de Vida Começa com Boa Audição", description: "Invista no seu bem-estar. Agende uma avaliação gratuita e transforme sua experiência auditiva.", image: "Imagens/index3.jpg" }
   ];
 
   const heroTitle = document.getElementById('heroTitle');

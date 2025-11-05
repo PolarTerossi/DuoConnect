@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <link rel="stylesheet" href="css/style.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
 <body class="font-sans flex flex-col min-h-screen bg-gray-50">
@@ -80,32 +81,41 @@
 </section>
 
     <section class="py-16 bg-white">
-        <div class="container mx-auto px-6 text-center">
-            <h3 class="text-3xl font-bold text-blue-900 mb-10">Soluções Completas para seu Bem-Estar Auditivo</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="bg-gray-50 p-8 rounded-lg transform transition duration-300 hover:-translate-y-2 hover:shadow-xl">
-                    <i class="ph ph-ear text-4xl text-blue-600 mb-4"></i>
-                    <h4 class="text-xl font-semibold mb-2 text-gray-800">Adaptação de Aparelhos</h4>
-                    <p class="text-gray-600">Garantimos uma transição suave e confortável, com suporte completo para você se acostumar à sua nova maneira de ouvir.</p>
-                </div>
-                <div class="bg-gray-50 p-8 rounded-lg transform transition duration-300 hover:-translate-y-2 hover:shadow-xl">
-                    <i class="ph ph-wrench text-4xl text-blue-600 mb-4"></i>
-                    <h4 class="text-xl font-semibold mb-2 text-gray-800">Manutenção e Suporte</h4>
-                    <p class="text-gray-600">Serviços de limpeza, troca de peças e ajustes para que seus aparelhos funcionem sempre com máxima performance.</p>
-                </div>
-                <div class="bg-gray-50 p-8 rounded-lg transform transition duration-300 hover:-translate-y-2 hover:shadow-xl">
-                    <i class="ph ph-users text-4xl text-blue-600 mb-4"></i>
-                    <h4 class="text-xl font-semibold mb-2 text-gray-800">Consultoria Especializada</h4>
-                    <p class="text-gray-600">Nossos fonoaudiólogos oferecem orientação personalizada para encontrar as melhores soluções para sua saúde auditiva.</p>
-                </div>
-                <div class="bg-gray-50 p-8 rounded-lg transform transition duration-300 hover:-translate-y-2 hover:shadow-xl">
-                    <i class="ph ph-graduation-cap text-4xl text-blue-600 mb-4"></i>
-                    <h4 class="text-xl font-semibold mb-2 text-gray-800">Treinamento e Workshops</h4>
-                    <p class="text-gray-600">Capacitamos familiares e cuidadores para auxiliar no uso e manutenção correta dos aparelhos auditivos no dia a dia.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  <div class="container mx-auto px-6 text-center">
+    
+    <h3 class="text-3xl font-bold text-blue-900 mb-10" data-aos="fade-up">
+      Soluções Completas para seu Bem-Estar Auditivo
+    </h3>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      
+      <div class="bg-gray-50 p-8 rounded-lg transform transition duration-300 hover:-translate-y-2 hover:shadow-xl" data-aos="fade-up" data-aos-delay="100">
+        <i class="ph ph-ear text-4xl text-blue-600 mb-4"></i>
+        <h4 class="text-xl font-semibold mb-2 text-gray-800">Adaptação de Aparelhos</h4>
+        <p class="text-gray-600">Garantimos uma transição suave e confortável, com suporte completo para você se acostumar à sua nova maneira de ouvir.</p>
+      </div>
+      
+      <div class="bg-gray-50 p-8 rounded-lg transform transition duration-300 hover:-translate-y-2 hover:shadow-xl" data-aos="fade-up" data-aos-delay="200">
+        <i class="ph ph-wrench text-4xl text-blue-600 mb-4"></i>
+        <h4 class="text-xl font-semibold mb-2 text-gray-800">Manutenção e Suporte</h4>
+        <p class="text-gray-600">Serviços de limpeza, troca de peças e ajustes para que seus aparelhos funcionem sempre com máxima performance.</p>
+      </div>
+      
+      <div class="bg-gray-50 p-8 rounded-lg transform transition duration-300 hover:-translate-y-2 hover:shadow-xl" data-aos="fade-up" data-aos-delay="300">
+        <i class="ph ph-users text-4xl text-blue-600 mb-4"></i>
+        <h4 class="text-xl font-semibold mb-2 text-gray-800">Consultoria Especializada</h4>
+        <p class="text-gray-600">Nossos fonoaudiólogos oferecem orientação personalizada para encontrar as melhores soluções para sua saúde auditiva.</p>
+      </div>
+      
+      <div class="bg-gray-50 p-8 rounded-lg transform transition duration-300 hover:-translate-y-2 hover:shadow-xl" data-aos="fade-up" data-aos-delay="400">
+        <i class="ph ph-graduation-cap text-4xl text-blue-600 mb-4"></i>
+        <h4 class="text-xl font-semibold mb-2 text-gray-800">Treinamento e Workshops</h4>
+        <p class="text-gray-600">Capacitamos familiares e cuidadores para auxiliar no uso e manutenção correta dos aparelhos auditivos no dia a dia.</p>
+      </div>
+      
+    </div>
+  </div>
+</section>
     
     <section id="testimonials-section" class="py-16 bg-blue-100">
   <div class="container mx-auto px-6 text-center max-w-3xl">
@@ -167,5 +177,13 @@
 
   <script src="js/global.js"></script>
   <script defer src="js/servicos.js"></script>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      once: true
+    });
+  </script>
 </body>
 </html>
