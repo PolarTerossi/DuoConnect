@@ -6,9 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!testimonialsSection) return;
 
   const testimonials = [
-    { quote: "O atendimento foi excepcional, do início ao fim. Senti que minhas necessidades foram realmente ouvidas. Voltei a participar das conversas em família!", name: "Maria S.", location: "Limeira, SP", stars: 5 },
-    { quote: "Depois de anos adiando, finalmente decidi procurar ajuda. A equipe da DuoConnect me deu toda a segurança e o aparelho é super discreto e eficiente. Recomendo!", name: "João P.", location: "Piracicaba, SP", stars: 5 },
-    { quote: "A fonoaudióloga foi muito paciente e explicou tudo em detalhes. O processo de adaptação foi mais fácil do que eu imaginava. Estou muito satisfeita.", name: "Ana C.", location: "Americana, SP", stars: 4 }
+    { quote: "Excelente serviço & atendimento ao cliente.", name: "Marcelo Souza", location: "Icaraí, Niterói", stars: 5 },
+    { quote: "Fácil estacionamento, equipe cordial e o principal, saí de lá ouvindo.", name: "Dejair Antunes", location: "Barra da Tijuca, RJ", stars: 5 },
+    { quote: "Muita atenção e eu diria e também paciência, esclarecimento total sobre o aparelho, estou muito satisfeita pelo profissionalismo e simpatia", name: "Sonia Mello", location: "Ipanema, RJ", stars: 5 }
   ];
 
   const track = document.getElementById('testimonial-track');

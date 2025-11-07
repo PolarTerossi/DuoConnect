@@ -1,8 +1,8 @@
 /* ================================================================== */
-/* ESTILOS ESPECÍFICOS PARA A PÁGINA: LOCALIZAÇÃO (localizacao.css)   */
+/* ESTILOS ESPECÍFICOS PARA A PÁGINA: LOCALIZAÇÃO (localizacao.css)  */
 /* ================================================================== */
 
-/* Estilos para a atribuição de créditos do mapa Leaflet */
+/* --- Créditos do mapa Leaflet --- */
 .leaflet-control-attribution {
   font-size: 9px;
   color: rgba(0, 0, 0, 0.3);
@@ -15,6 +15,19 @@
 
 /* --- Estilos para o Carrossel de Avaliações --- */
 .testimonial-slide {
-    box-sizing: border-box; /* Garante que padding não afete a largura total */
-    background-color: white;
+  box-sizing: border-box; /* Garante que padding não afete a largura total */
+  background-color: white;
+}
+
+/* --- Correção de sobreposição do mapa com a navbar --- */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 2000 !important; /* Garante que o header fique sempre acima do mapa */
+}
+
+/* --- Garante que o mapa fique abaixo do header --- */
+#map {
+  z-index: 0 !important;
+  position: relative;
 }
