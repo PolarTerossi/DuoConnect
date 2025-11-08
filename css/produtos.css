@@ -1,17 +1,26 @@
+/*
+ * =========================================
+ * CSS DA PÁGINA DE PRODUTOS (produtos.css)
+ * =========================================
+ */
+
+/* --- 1. SEÇÃO PRINCIPAL (APARELHOS) --- */
 #secao-aparelhos {
   background-color: #2b3b94;
 }
 
-/* --- SEÇÃO DO CARROSSEL --- */
 #secao-aparelhos h1 {
-    color: #ffffff;
+  color: #ffffff;
 }
+
+/* --- 2. CARROSSEL DE APARELHOS --- */
 .carousel-background {
   position: relative;
   width: 100%;
   overflow: hidden;
   padding: 2rem 0;
 }
+
 .carousel-container {
   position: relative;
   height: 540px;
@@ -19,7 +28,7 @@
   align-items: center;
   justify-content: center;
   perspective: 1200px;
-  transform-style: preserve-3d; /* <-- Adicione esta linha */
+  transform-style: preserve-3d;
 }
 
 .carousel-slide {
@@ -28,32 +37,39 @@
   max-width: 300px; /* Mas não passa de 300px */
   background: #fff;
   border-radius: 1rem;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   padding: 12px;
   opacity: 0;
   transition: transform 0.5s ease, opacity 0.5s ease, z-index 0.5s ease;
 }
+
+/* Estados dos Slides */
 .carousel-slide.active {
   transform: translateX(0) scale(1.3);
   opacity: 1;
   z-index: 10;
 }
+
 .carousel-slide.inactive-left {
   transform: translateX(-110%) scale(0.8); /* Move 110% de sua própria largura para a esquerda */
   opacity: 1;
   z-index: 5;
 }
+
 .carousel-slide.inactive-right {
   transform: translateX(110%) scale(0.8); /* Move 110% de sua própria largura para a direita */
   opacity: 1;
   z-index: 5;
 }
+
 .carousel-slide.hidden-slide {
-    transform: scale(0.5);
-    opacity: 0;
-    z-index: 1;
-    pointer-events: none; 
+  transform: scale(0.5);
+  opacity: 0;
+  z-index: 1;
+  pointer-events: none;
 }
+
+/* Conteúdo do Slide */
 .carousel-slide .img-wrapper {
   display: flex;
   align-items: center;
@@ -61,102 +77,53 @@
   height: 300px;
   border-radius: 0.5rem;
 }
+
 .carousel-slide img {
   max-height: 95%;
   max-width: 95%;
   object-fit: contain;
 }
-.bg-telex { background: #17a903; }
-.bg-philips { background: #ffa40f; }
+
+.bg-telex {
+  background: #17a903;
+}
+.bg-philips {
+  background: #ffa40f;
+}
+
+/* Setas do Carrossel */
 .carousel-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 20;
-    background-color: white;
-    color: #005dad;
-    border: none;
-    border-radius: 50%;
-    width: 48px;
-    height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-.carousel-arrow:hover {
-    background-color: #eef2ff;
-    transform: translateY(-50%) scale(1.1);
-}
-.carousel-arrow.left-2 { left: 2rem; }
-.carousel-arrow.right-2 { right: 2rem; }
-
-/* --- BOTÕES DE FILTRO --- */
-#filter-buttons {
-  position: relative;
-  left: 30px;
-}
-.filter-btn {
-  background-color: transparent;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  background-color: white;
+  color: #005dad;
   border: none;
-  padding: 0;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  transition: all 0.3s ease;
-}
-.filter-btn:not(.active):hover {
-  transform: scale(1.1);
-}
-.filter-btn-center {
-  transform: scale(1.1);
-}
-.filter-btn-center:not(.active):hover {
-  transform: scale(1.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-/* --- SEÇÃO DOS ACESSÓRIOS (GRID) --- */
-#secao-acessorios {
-    background-color: #ffffff;
-    padding: 1rem 2rem 4rem 2rem;
-    color: black;
-}
-.cards-section {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-}
-.cards-section .card {
-  background: white;
-  border-radius: 0.5rem;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  text-align: left;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 3px solid #005dad; 
-}
-.cards-section .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-}
-.cards-section .card img {
-  width: 100%;
-  object-fit: cover;
-  height: 200px;
-  background-color: #f8f8fa;
-}
-.cards-section .card .p-4 {
-    padding: 1rem;
-}
-.initial-hide {
-  display: none;
+.carousel-arrow:hover {
+  background-color: #eef2ff;
+  transform: translateY(-50%) scale(1.1);
 }
 
-/* --- NOVOS ESTILOS --- */
+.carousel-arrow.left-2 {
+  left: 2rem;
+}
+.carousel-arrow.right-2 {
+  right: 2rem;
+}
 
-/* 1. INDICADORES DO CARROSSEL */
+/* Indicadores do Carrossel */
 .carousel-indicators {
   display: flex;
   justify-content: center;
@@ -164,6 +131,7 @@
   margin-top: -1rem;
   padding-bottom: 2rem;
 }
+
 .indicator-dot {
   width: 12px;
   height: 12px;
@@ -173,12 +141,91 @@
   cursor: pointer;
   transition: all 0.3s ease;
 }
+
 .indicator-dot.active {
   background-color: #ffffff;
   transform: scale(1.2);
 }
 
-/* 2. BOTÃO FLUTUANTE DO WHATSAPP */
+/* --- 3. BOTÕES DE FILTRO DE MARCAS --- */
+#filter-buttons {
+  position: relative;
+  left: 30px;
+}
+
+.filter-btn {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:not(.active):hover {
+  transform: scale(1.1);
+}
+
+.filter-btn-center {
+  transform: scale(1.1);
+}
+
+.filter-btn-center:not(.active):hover {
+  transform: scale(1.2);
+}
+
+/* --- 4. SEÇÃO DE ACESSÓRIOS --- */
+#secao-acessorios {
+  /* ATUALIZADO: Cor de fundo alterada conforme solicitação */
+  background-color: #eef2ff; /* Tom de azul claro (Tailwind 'bg-blue-100') */
+  padding: 1rem 2rem 4rem 2rem;
+  color: black;
+}
+
+.cards-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.cards-section .card {
+  background: white;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* Esta é a borda padrão que você tinha */
+  border: 3px solid #005dad;
+}
+
+/* ADICIONADO: Regra para a classe .no-border que você está usando no HTML */
+.cards-section .card.no-border {
+  border: none !important;
+}
+
+.cards-section .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.cards-section .card img {
+  width: 100%;
+  object-fit: cover;
+  height: 200px;
+  background-color: #f8f8fa;
+}
+
+.cards-section .card .p-4 {
+  padding: 1rem;
+}
+
+.initial-hide {
+  display: none;
+}
+
+/* --- 5. BOTÃO FLUTUANTE (WHATSAPP) --- */
 #whatsapp-fab {
   position: fixed;
   bottom: 2rem;
@@ -186,22 +233,24 @@
   z-index: 100;
   width: 60px;
   height: 60px;
-  background-color: #25D366;
+  background-color: #25d366;
   color: #fff;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 2.5rem; /* Tamanho do ícone */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
   animation: pulse 2s infinite;
 }
+
 #whatsapp-fab:hover {
   transform: scale(1.1);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
   animation: none; /* Pausa a animação no hover */
 }
+
 @keyframes pulse {
   0% {
     transform: scale(0.95);
